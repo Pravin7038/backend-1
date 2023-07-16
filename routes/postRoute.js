@@ -21,9 +21,18 @@ route.get("/get", async (req, res) => {
     try {
 
 
-        const post = await Post.findOne({ title: req.query.title });
-        console.log(post)
-        res.send({ "msg": post })
+        if (!req.query.title) {
+            const data = await Post.find();
+            res.send({ "msg": data })
+        }
+        else {
+
+            const post = await Post.findOne({ title: req.query.title });
+            console.log(post)
+
+            res.send({ "msg": post })
+
+        }
 
     } catch (error) {
         res.send({ "msg": "error" })
