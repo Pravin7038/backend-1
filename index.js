@@ -5,9 +5,11 @@ const user = require("./models/userModel")
 const Post = require("./models/postModel")
 require("dotenv").config()
 app.use(express.json());
+const cors = require('cors');
 const blacklist = require("./blacklist")
 const jwt = require("jsonwebtoken")
 
+app.use(cors({ origin: 'http://localhost:3000' }));
 const userRoute = require("./routes/userRoute")
 const postRoute = require("./routes/postRoute")
 app.get("/",(req,res)=>{
