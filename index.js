@@ -9,7 +9,7 @@ const cors = require('cors');
 const blacklist = require("./blacklist")
 const jwt = require("jsonwebtoken")
 
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors({ origin: 'https://deploy-server-assignment.onrender.com/' }));
 const userRoute = require("./routes/userRoute")
 const postRoute = require("./routes/postRoute")
 app.get("/",(req,res)=>{
